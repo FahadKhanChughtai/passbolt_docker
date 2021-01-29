@@ -9,6 +9,20 @@
   (c) 2018 Passbolt SARL
   https://www.passbolt.com
 ```
+
+# Changes by FahadKhanChughtai
+I have changed this to according to my requirements, because, i had a docker container of mysql 5.7.33 already running on my server. So, I had to change the following:
+1) dokcer-compose files. (You can use whatever you want. I changed them all and used docker-compose.yml for productionn)
+deleted all information about mysql.
+deleted the dependency of passbolt installtion on db. 
+changed the ports as my server has nginx installed on it.
+changed the host machine ipaddress. 
+2) change env file of passbolt in passbolt_docker/env/
+for local installtion I had to add this to env file. 
+PASSBOLT_SSL_FORCE=false
+
+
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0de4eaf7426944769a70a2d727a9012b)](https://www.codacy.com/app/passbolt/passbolt_docker?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=passbolt/passbolt_docker&amp;utm_campaign=Badge_Grade)
 [![Docker Pulls](https://img.shields.io/docker/pulls/passbolt/passbolt.svg?style=flat-square)](https://hub.docker.com/r/passbolt/passbolt/tags/)
 [![GitHub release](https://img.shields.io/github/release/passbolt/passbolt_docker.svg?style=flat-square)](https://github.com/passbolt/passbolt_docker/releases)
@@ -169,3 +183,8 @@ $ su -c "source /etc/environment; bin/cake passbolt healthcheck" -s /bin/bash ww
 * rng-tools or haveged are required on host machine to speed up entropy generation on containers.
 This way gpg key creation on passbolt container will be faster.
 * mariadb/mysql >= 5.6
+
+
+
+
+
